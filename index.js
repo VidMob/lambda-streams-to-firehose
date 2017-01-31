@@ -15,7 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-var debug = false;
+var debug = true;
 
 var pjson = require('./package.json');
 var setRegion = process.env['AWS_REGION'];
@@ -37,7 +37,7 @@ var transform = require('./transformer');
  * create the transformer instance - change this to be regexToDelimter, or your
  * own new function
  */
-var useTransformer = transform.jsonToStringTransformer.bind(undefined);
+var useTransformer = transform.doNothingTransformer.bind(undefined);
 
 /*
  * Configure destination router. By default all records route to the configured
